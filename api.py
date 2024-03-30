@@ -13,7 +13,7 @@ while True:  # 持续接收消息
         we.Click(simulateMove=False)  # 点击未读消息
         last_msg = wx.ListControl(Name='消息').GetChildren()[-1].Name  # 读取最后一条消息
         erniebot.api_type = 'aistudio'
-        erniebot.access_token = '08910ec3505c12cbb5b0aa86e6336b275aad0a1b'  # 设置个人的访问令牌
+        erniebot.access_token = ''  # 设置个人的访问令牌
         response = erniebot.ChatCompletion.create(
             model='ernie-3.5',
             messages=[{'role': 'user', 'content': last_msg}],
