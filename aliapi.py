@@ -3,7 +3,7 @@ import dashscope
 import time
 
 # 设置阿里云API密钥
-dashscope.api_key = "sk-daafaae706ba4719ae533585a34a7024"
+dashscope.api_key = ""
 
 wx = WindowControl(Name='微信', searchDepth=1)  # 绑定微信主窗口
 wx.ListControl()  # 切换窗口
