@@ -1,9 +1,9 @@
 import sparkAPI
 
 # 以下密钥信息从控制台获取
-appid = "78858893"  # 填写控制台中获取的 APPID 信息
-api_secret = "N2E5N2VlMjBkMmU2NTBiYjM5NmQxMWQx"  # 填写控制台中获取的 APISecret 信息
-api_key = "5d5b3e5ba5968db0e364a6c470fffaa9"  # 填写控制台中获取的 APIKey 信息
+appid = ""  # 填写控制台中获取的 APPID 信息
+api_secret = ""  # 填写控制台中获取的 APISecret 信息
+api_key = ""  # 填写控制台中获取的 APIKey 信息
 
 domain = "generalv3.5"  # v3版本
 # 云端环境的服务地址
