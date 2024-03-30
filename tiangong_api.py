@@ -5,8 +5,8 @@ import hashlib
 import json
 
 url = 'https://{api.singularity-ai.com}/sky-saas-search/api/v1/search'
-app_key = '17ebe8a272b64d45450977e0e36d2118'        # 这里需要替换你的APIKey
-app_secret = '6bde47626733b55471df7d0bf9cdcd7a3473b3c718470bc8'  # 这里需要替换你的APISecret
+app_key = ''        # 这里需要替换你的APIKey
+app_secret = ''  # 这里需要替换你的APISecret
 timestamp = str(int(time.time()))
 sign_content = app_key + app_secret + timestamp
 sign_result = hashlib.md5(sign_content.encode('utf-8')).hexdigest()
