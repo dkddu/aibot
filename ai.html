@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIbot</title>
+    <link rel="stylesheet" href="ai.css">
+</head>
+    <body>
+    <!-- 个人网站链接 -->
+    <a href="https://bing-demo.azurewebsites.net/web/#/" id="personal-website" target="_blank"  rel="noopener noreferrer">个人网站</a>
+
+    <!-- 对话框容器 -->
+    <div id="chat-container">
+        <div id="chat-box">
+            <!-- AI头像 -->
+            <div id="ai-avatar">
+            <img src="image/aibot.png" alt="AI头像">
+            </div>
+        
+            <!-- 对话框 -->
+            <div id="messages"></div>
+        
+            <!-- 用户头像 -->
+            <div id="user-avatar">
+            <img src="image/user.png" alt="用户头像">
+            </div>
+        </div>
+        </div>
+
+    <!-- 输入框和模型选择 -->
+    <div  class="select_container">
+    <select  class="select_wrap"   name="model" title="模型选择"  id="model-select" onchange="selectModel(this.value)">
+        <option value="qwen">通义千问</option>
+        <option value="ernie">文心一言</option>
+        <option value="xfyun">讯飞星火</option>
+        <option value="moonshot">Kimi智能助手</option>
+        <option value="tiangong">天工AI</option>
+        <option value="zhipu">智谱清言</option>
+    </select>
+    <input type="text" id="user-input" placeholder="输入消息...">
+    <button onclick="sendMessage()">Send Message</button>
+    </div>
+
+    <!-- 自定义背景图片 -->
+    <input type="file" id="bg-upload" onchange="updateBackground(event)">
+    <label for="bg-upload">bgimg</label>
+
+    <script src="ai.js"></script>
+</body>
+</html>

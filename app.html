@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>AI对话网站</title>
+    <style>
+    /* 自定义背景图片样式 */
+    body {
+        background-image: url('default_bg.jpg');
+        background-size: cover;
+    }
+    </style>
+</head>
+<body>
+    <h1>AI对话</h1>
+    <!-- 对话区域 -->
+    <div id="conversation"></div>
+
+        <!-- 输入框和模型选择 -->
+    <div>
+<!--    <button id="model-btn">选择模型</button>-->
+    <!-- 模型选择下拉框 -->
+    <select id="model-select" onchange="selectModel(this.value)">
+        <option value="qwen">通义千问</option>
+        <option value="ernie">文心一言</option>
+        <option value="xfyun">讯飞星火</option>
+
+    </select>
+    <input type="text" id="user-input" placeholder="输入消息...">
+    <button onclick="sendMessage()">发送</button>
+    </div>
+
+    <!-- 自定义背景图片 -->
+    <input type="file" id="bg-upload" onchange="updateBackground(event)">
+    <label for="bg-upload">更换背景图片</label>
+
+    <script>
+    let currentModel = 'qwen'; // 默认模型
+
+
+    // 选择模型（修改为处理下拉框的change事件）
+    function selectModel(model) {
+        currentModel = model;
+        }
+
+    // 初始化页面时设置默认模型
+    document.addEventListener('DOMContentLoaded', function () {
+        var modelSelect = document.getElementById('model-select');
+        modelSelect.value = 'qwen';
+        currentModel = modelSelect.value;
+        });
+
+    // 发送消息到后端
+    function sendMessage() {
+        const userInput = document.getElementById('user-input').value;
+        const requestData = {
+        message: userInput,
+        model: currentModel
+        };
+
+        fetch('http://localhost:5000/api/chat', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData)
+        })
+        .then(response => response.json())
+        .then(data => {
+        // 处理后端返回的回复
+        const reply = data.reply;
+        displayReply(reply);
+        })
+        .catch(error => {
+        console.error('Error:', error);
+        });
+    }
+
+    // 显示AI回复
+    function displayReply(reply) {
+        const conversation = document.getElementById('conversation');
+        const replyElement = document.createElement('div');
+        replyElement.textContent = reply;
+        conversation.appendChild(replyElement);
+    }
+
+    // 更新背景图片
+    function updateBackground(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = function() {
+        document.body.style.backgroundImage = `url(${reader.result})`;
+        }
+        reader.readAsDataURL(file);
+    }
+    </script>
+</body>
+</html>
