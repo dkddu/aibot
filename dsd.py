@@ -4,11 +4,11 @@ import erniebot
 import timerun
 
 # 设置阿里云API密钥
-dashscope.api_key = "sk-daafaae706ba4719ae533585a34a7024"
+dashscope.api_key = ""
 
 # 设置文心一言API访问令牌
 erniebot.api_type = 'aistudio'
-erniebot.access_token = '08910ec3505c12cbb5b0aa86e6336b275aad0a1b'
+erniebot.access_token = ''
 
 wx = WindowControl(Name='微信', searchDepth=1)  # 绑定微信主窗口
 wx.ListControl()  # 切换窗口
