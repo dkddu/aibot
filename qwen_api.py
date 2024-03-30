@@ -1,7 +1,7 @@
 import dashscope
 
 # 设置阿里云API密钥
-dashscope.api_key = "sk-daafaae706ba4719ae533585a34a7024"
+dashscope.api_key = ""
 
 def generate_reply(user_input):
     response_generator = dashscope.Generation.call(
