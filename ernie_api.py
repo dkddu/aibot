@@ -2,7 +2,7 @@ import erniebot
 
 # 设置文心一言API访问令牌
 erniebot.api_type = 'aistudio'
-erniebot.access_token = '08910ec3505c12cbb5b0aa86e6336b275aad0a1b'
+erniebot.access_token = ''
 
 
 def generate_reply(user_input):
